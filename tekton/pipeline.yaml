@@ -1,17 +1,17 @@
 apiVersion: tekton.dev/v1alpha1
 kind: Pipeline
 metadata:
-  name: myapp
+  name: tekton-sample-catapp-pipeline
 spec:
   params:
     - name: BUILDER_IMAGE
       description: The image on which builds will run
-      default: myapp:latest
+      default: tekton-sample-catapp:latest
   resources:
     - name: source
       type: git
   tasks:
-    - name: build
+    - name: build task
       taskRef:
         name: build-docker
       params:
@@ -21,7 +21,7 @@ spec:
         inputs:
           - name: source
             resource: source
-    - name: deploy
+    - name: deploy task
       runAfter: [build]
       taskRef:
         name: deploy-kubectl
