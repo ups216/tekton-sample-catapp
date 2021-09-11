@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: ups216-tekton-sample-catapp
   labels:
-    app: myapp
+    app: ups216-tekton-sample-catapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myapp
+      app: ups216-tekton-sample-catapp
   template:
     metadata:
       labels:
-        app: myapp
+        app: ups216-tekton-sample-catapp
     spec:
       containers:
-        - name: myapp
-          image: myapp:latest
+        - name: ups216-tekton-sample-catapp
+          image: ups216-tekton-sample-catapp:latest
           imagePullPolicy: Never
           ports:
             - containerPort: 3000
