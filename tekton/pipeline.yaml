@@ -22,7 +22,7 @@ spec:
           - name: source
             resource: source
     - name: deploy-task
-      runAfter: [build]
+      runAfter: [build-task]
       taskRef:
         name: deploy-kubectl
       resources:
