@@ -11,7 +11,7 @@ spec:
     - name: source
       type: git
   tasks:
-    - name: build-task
+    - name: build
       taskRef:
         name: build-docker
       params:
@@ -21,8 +21,8 @@ spec:
         inputs:
           - name: source
             resource: source
-    - name: deploy-task
-      runAfter: [build-task]
+    - name: deploy
+      runAfter: [build]
       taskRef:
         name: deploy-kubectl
       resources:
